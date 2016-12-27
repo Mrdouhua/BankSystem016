@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.cqupt.dao.CurrencyinfoMapper" >
+  <resultMap id="BaseResultMap" type="cn.edu.cqupt.model.Currencyinfo" >
+    <id column="CIid" property="ciid" jdbcType="VARCHAR" />
+    <result column="currencyGroup" property="currencygroup" jdbcType="VARCHAR" />
+    <result column="buyIn" property="buyin" jdbcType="DOUBLE" />
+    <result column="sellOut" property="sellout" jdbcType="DOUBLE" />
+    <result column="maxRate" property="maxrate" jdbcType="DOUBLE" />
+    <result column="middleRate" property="middlerate" jdbcType="DOUBLE" />
+    <result column="minRate" property="minrate" jdbcType="DOUBLE" />
+    <result column="creatTime" property="creattime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    CIid, currencyGroup, buyIn, sellOut, maxRate, middleRate, minRate, creatTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from currencyinfo
+    where CIid = #{ciid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from currencyinfo
+    where CIid = #{ciid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.edu.cqupt.model.Currencyinfo" >
+    insert into currencyinfo (CIid, currencyGroup, buyIn, 
+      sellOut, maxRate, middleRate, 
+      minRate, creatTime)
+    values (#{ciid,jdbcType=VARCHAR}, #{currencygroup,jdbcType=VARCHAR}, #{buyin,jdbcType=DOUBLE}, 
+      #{sellout,jdbcType=DOUBLE}, #{maxrate,jdbcType=DOUBLE}, #{middlerate,jdbcType=DOUBLE}, 
+      #{minrate,jdbcType=DOUBLE}, #{creattime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.edu.cqupt.model.Currencyinfo" >
+    insert into currencyinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ciid != null" >
+        CIid,
+      </if>
+      <if test="currencygroup != null" >
+        currencyGroup,
+      </if>
+      <if test="buyin != null" >
+        buyIn,
+      </if>
+      <if test="sellout != null" >
+        sellOut,
+      </if>
+      <if test="maxrate != null" >
+        maxRate,
+      </if>
+      <if test="middlerate != null" >
+        middleRate,
+      </if>
+      <if test="minrate != null" >
+        minRate,
+      </if>
+      <if test="creattime != null" >
+        creatTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ciid != null" >
+        #{ciid,jdbcType=VARCHAR},
+      </if>
+      <if test="currencygroup != null" >
+        #{currencygroup,jdbcType=VARCHAR},
+      </if>
+      <if test="buyin != null" >
+        #{buyin,jdbcType=DOUBLE},
+      </if>
+      <if test="sellout != null" >
+        #{sellout,jdbcType=DOUBLE},
+      </if>
+      <if test="maxrate != null" >
+        #{maxrate,jdbcType=DOUBLE},
+      </if>
+      <if test="middlerate != null" >
+        #{middlerate,jdbcType=DOUBLE},
+      </if>
+      <if test="minrate != null" >
+        #{minrate,jdbcType=DOUBLE},
+      </if>
+      <if test="creattime != null" >
+        #{creattime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.cqupt.model.Currencyinfo" >
+    update currencyinfo
+    <set >
+      <if test="currencygroup != null" >
+        currencyGroup = #{currencygroup,jdbcType=VARCHAR},
+      </if>
+      <if test="buyin != null" >
+        buyIn = #{buyin,jdbcType=DOUBLE},
+      </if>
+      <if test="sellout != null" >
+        sellOut = #{sellout,jdbcType=DOUBLE},
+      </if>
+      <if test="maxrate != null" >
+        maxRate = #{maxrate,jdbcType=DOUBLE},
+      </if>
+      <if test="middlerate != null" >
+        middleRate = #{middlerate,jdbcType=DOUBLE},
+      </if>
+      <if test="minrate != null" >
+        minRate = #{minrate,jdbcType=DOUBLE},
+      </if>
+      <if test="creattime != null" >
+        creatTime = #{creattime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where CIid = #{ciid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.cqupt.model.Currencyinfo" >
+    update currencyinfo
+    set currencyGroup = #{currencygroup,jdbcType=VARCHAR},
+      buyIn = #{buyin,jdbcType=DOUBLE},
+      sellOut = #{sellout,jdbcType=DOUBLE},
+      maxRate = #{maxrate,jdbcType=DOUBLE},
+      middleRate = #{middlerate,jdbcType=DOUBLE},
+      minRate = #{minrate,jdbcType=DOUBLE},
+      creatTime = #{creattime,jdbcType=TIMESTAMP}
+    where CIid = #{ciid,jdbcType=VARCHAR}
+  </update>
+</mapper>

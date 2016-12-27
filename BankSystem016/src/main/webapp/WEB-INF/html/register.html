@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>register</title>
+	<link rel="shortcut icon" href="/BankSystem_16/img/SE.ico">
+	<link rel="stylesheet" href="/BankSystem_16/css/register.css">
+</head>
+<body>
+	<!-- 头部 -->
+	<div class="header">
+		<div class="head-wrap">
+			<div class="head-left">
+				<div class="logo">
+					<h1 class="logo-h1">
+						<a href="#" class="logo-a">
+							<img src="/BankSystem_16/img/logo.png" alt="logo" class="logo-img">
+						</a>
+					</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="main">
+		<div class="container">
+			<h2 class="account-title">用户注册</h2>
+			<form action="" class="account-form" method="post" id="account" enctype="multipart/form-data">
+				<p class="account-p">
+					<label for="loginname" class="account-label">
+						用户名:
+					</label>
+					<input type="text" name="loginname" class="account-input" placeholder="请输入用户名">
+				</p>
+				<p class="account-p">
+					<label for="password" class="account-label">
+						密码:
+					</label>
+					<input type="password" name="password" class="account-input" placeholder="请输入密码">
+				</p>
+				<p class="account-p">
+					<label for="card-num" class="account-label">
+						身份证号码:
+					</label>
+					<input type="text" name="idnumber" class="account-input" placeholder="请输入身份证号码">
+				</p>
+				<p class="account-p">
+					<label for="name" class="account-label">
+						姓名:
+					</label>
+					<input type="text" name="name" class="account-input" placeholder="姓名">
+				</p>
+				<p class="account-p">
+					<label for="sex" class="account-label">
+						性别:
+					</label>
+					<input type="radio" name="sex" class="account-input" value="1" checked="true">
+					<label class="sex-label">男</label>
+					<input type="radio" name="sex" class="account-input" value="0">
+					<label class="sex-label">女</label>
+				</p>
+				<p class="account-p">
+					<label for="address" class="account-label">
+						家庭地址:
+					</label>
+					<input type="text" name="address" class="account-input" placeholder="家庭地址">
+				</p>
+				<p class="account-p">
+					<label for="contact" class="account-label">
+						联系方式:
+					</label>
+					<input type="text" name="phone" class="account-input" placeholder="联系方式">
+				</p>
+				<p class="account-p">
+					<label for="email" class="account-label">
+						email:
+					</label>
+					<input type="text" name="email" class="account-input" placeholder="email">
+				</p>
+				<div class="file">
+					<input type="file" id="file"  name="file" class="file-input">
+					<div class="pic-show">上传头像</div>
+				</div>
+				<p class="account-p">
+					<input type="submit" id="subBtn" value="submit">
+					<input type="reset" id="reset" value="cancel">
+				</p>
+			</form>
+		</div>
+	</div>
+
+	<!-- 尾部 -->
+	<div class="footer">
+		<div class="footer-wrap">
+			<ul class="text">
+				<li><a href="#">网站申明</a></li>
+				<li><a href="#">网站地图</a></li>
+				<li><a href="#">联系我们</a></li>
+				<li><a href="#" class="noborder">客服热线：15207</a></li>
+			</ul><br>
+			<ul class="copyright">
+				<li>
+					<a href="#">
+						重庆邮电大学SE银行版权所有
+					</a>
+				</li>
+				<li>
+					<a href="#" class="noborder">
+						豫ICP备000000
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="/BankSystem_16/js/jquery.js"></script>
+	<script type="text/javascript" src="/BankSystem_16/js/register.js"></script>
+</body>
+</html>

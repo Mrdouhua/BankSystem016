@@ -1,0 +1,360 @@
+body,html {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-size: 12px;
+	font-family: "Microsoft Yahei";
+	background-color: #f2f2f2;
+}
+a {
+	text-decoration: none;
+}
+
+/* 澶撮儴 */
+.header {
+	width: 100%;
+	min-width: 1050px;
+	height: 75px;
+	background-color: #013564;
+}
+.head-wrap {
+	width: 1000px;
+	height: 75px;
+	margin: 0 auto;
+}
+
+/* 澶撮儴宸﹁竟 */
+.head-left {
+	width: 450px;
+	height: 75px;
+	float: left;
+}
+h1.logo-h1 {
+	margin: 0;
+	padding: 0;
+}
+.logo-a {
+	border: 0;
+	text-decoration: none;
+}
+.logo-img {
+	width: 225px;
+	height: 75px;
+}
+
+/* 澶撮儴鍙宠竟 */
+.head-right {
+	width: 450px;
+	height: 75px;
+	float: right;
+}
+.user-info {
+	display: table;
+	float: right;
+	height: 75px;
+}
+#username {
+	margin: 0;
+	padding: 0;
+	width: 100px;
+	height: 75px;
+	line-height: 20px;
+	text-align: center;
+	float: left;
+}
+.username-a {
+	display: inline-block;
+	color: #fff;
+	font-size: 18px;
+	margin-top: 20px;
+	transition: color .6s;
+}
+.logout {
+	display: inline-block;
+	color: #fff;
+	font-size: 18px;
+	transition: color .6s;
+}
+.username-a:hover,.logout:hover {
+	color: #676767;
+}
+.user-pic {
+	width: 100px;
+	height: 75px;
+	float: right;
+}
+.user-pic-a {
+	border: 0;
+}
+.user-pic-img {
+	width: 100%;
+	height: 100%;
+	border-radius: 4px;
+}
+
+/* 瀵艰埅鏍� */
+.nav {
+	width: 100%;
+	height: 55px;
+}
+.nav-wrap {
+	width: 560px;
+	height: 55px;
+	margin: 0 auto;
+}
+ul.nav-ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.nav-li {
+	margin: 0;
+	padding: 0;
+	float: left;
+	width: 140px;
+	height: 55px;
+	box-sizing: border-box;
+}
+.nav-a {
+	display: block;
+	width: 140px;
+	height: 55px;
+	text-align: center;
+	line-height: 55px;
+	color: #23ac38;
+	font-size: 14px;
+	transition: background 1s,color 1s;
+}
+.nav-active1 {
+	background: #23ac38;
+	color: #f2f2f2;
+}
+.nav-a:hover {
+	background: #23ac38;
+	color: #f2f2f2;
+}
+/* inner-nav */
+.inner-nav {
+	display: none;
+	width: 550px;
+	height: 0;
+	padding-left: 10px;
+	background-color: rgba(199,214,214,.9);
+	z-index: 10;
+}
+/* 璁剧疆浜岀骇瀵艰埅鐨勪綅缃� */
+.ml-140 {
+	margin-left: -140px;
+}
+.ml-280 {
+	margin-left: -280px;
+}
+.ml-420 {
+	margin-left: -420px;
+}
+.nav-li:hover .inner-nav {
+	/*display: block;*/
+}
+h2.title {
+	width: 550px;
+	text-align: center;
+	height: 30px;
+	line-height: 30px;
+	color: #000000;
+	font-size: 14px;
+	margin: 0;
+	padding: 0;
+}
+.items {
+	width: 550px;
+}
+
+/* 缁�2锛�3涓猲av涓嬮潰鐨勪簩绾у鑸缃叕鐢ㄧ殑鏍峰紡 */
+.inner-nav ul {
+	margin: 0;
+	padding: 0;
+}
+.inner-nav a:hover {
+	text-decoration: underline;
+}
+.inner-nav ul li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	width: 93px;
+	text-align: left;
+	height: 30px;
+	line-height: 30px;
+}
+.inner-nav ul li a {
+	color: #000;
+}
+.inner-nav ul li ul {
+	margin: -30px 0 0 93px;
+	padding: 0;
+	width: 466px;
+	height: 30px;
+}
+.inner-nav ul li ul li {
+	float: left;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	width: 93px;
+	text-align: left;
+	height: 30px;
+	line-height: 30px;
+	overflow: hidden;
+}
+.inner-nav ul li ul li a {
+	color: #000;
+}
+.inner-bottom ul {
+	margin: 0;
+	padding: 0;
+	height: 30px;
+}
+.inner-bottom ul li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	float: left;
+	width: 93px;
+	text-align: left;
+	height: 30px;
+	line-height: 30px;
+}
+.inner-bottom ul li a {
+	color: #000;
+}
+
+/* 缁欏瓨娆惧強閾惰鍗″簳閮ㄦ湁涓枃瀛楄繃闀垮崟鐙坊鍔犵被 */
+li.width140 {
+	width: 140px!important;
+}
+
+/* 缁欑涓�涓猲av涓嬮潰鐨勪簩绾у鑸崟鐙缃牱寮� */
+.card {
+	width: 550px;
+}
+.card ul {
+	margin: 0;
+	padding: 0;
+}
+.card ul li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	width: 270px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	float: left;
+}
+.card ul li a {
+	color: #000;
+}
+.card-bottom ul {
+	margin: 0;
+	padding: 0;
+}
+.card-bottom ul li {
+	margin: 0;
+	padding: 0;
+	width: 136px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	float: left;
+	list-style: none;
+}
+.card-bottom ul li a {
+	color: #000;
+}
+
+/* 缁欐渶鍚庝竴涓猲av涓嬮潰鐨勪簩绾у鑸崟鐙缃牱寮� */
+.online-bank ul {
+	margin: 0;
+	padding: 0;
+}
+.online-bank ul li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	float: left;
+	width: 180px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+}
+.online-bank ul li a {
+	color: #000;
+}
+
+/* banner */
+.banner {
+	width: 100%;
+	min-width: 1050px;
+	height: 300px;
+	background: url(/BankSystem_16/img/ad.jpg);
+	background-size: 100% 100%;
+}
+
+/* main */
+.main {
+	width: 100%;
+	min-height: calc(100vh - 530px);
+}
+
+/* 灏鹃儴 */
+.footer {
+	width: 100%;
+	min-width: 1050px;
+	height: 100px;
+	background-color: #013564;
+}
+.footer-wrap {
+	width: 1000px;
+	margin: auto;
+	padding-top: 20px;
+	text-align: center;
+}
+ul.text {
+	width: 404px;
+	height: 15px;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+ul.copyright {
+	width: 350px;
+	height: 15px;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+ul.text li,ul.copyright li {
+	float: left;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+ul.text li a,ul.copyright li a {
+	display: inline-block;
+	height: 15px;
+	margin: 0;
+	padding: 0 15px;
+	text-align: center;
+	color: #8c8c8c;
+	line-height: 15px;
+	border-right: 1px solid #8c8c8c;
+}
+ul.text li a:hover,ul.copyright li a:hover {
+	text-decoration: underline;
+	color: #fff;
+}
+ul.text li a.noborder,ul.copyright li a.noborder {
+	border-right: 0px;
+}

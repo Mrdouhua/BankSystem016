@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.cqupt.dao.LoanApprovalInfoMapper" >
+ <resultMap id="ResultMapWithBLOBs" type="cn.edu.cqupt.model.LoanApprovalInfo" >
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="IDNumber" property="idNumber" jdbcType="VARCHAR" />
+    <result column="loanType" property="loanType" jdbcType="VARCHAR" />
+    <result column="captial" property="captial" jdbcType="DECIMAL" />
+    <result column="cardID" property="cardID" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="proveFile" property="proveFile" jdbcType="VARCHAR" />
+    
+  </resultMap>
+
+  <!-- 需要分页的部分 -->
+  <select id="getLoanInfByUserName" resultMap="ResultMapWithBLOBs" parameterType="java.util.HashMap" >
+    SELECT u.name,l.IDnumber,l.capital,l.cardID,l.status from userinfo u,loan l where u.IDnumber = l.IDnumber and u.name=#{userName,jdbcType=VARCHAR} and l.status!='4'
+  </select>
+
+  <select id="getLoanInfByidNumber" resultMap="ResultMapWithBLOBs" parameterType="java.util.HashMap" >
+    select u.name,l.IDnumber,l.capital,l.cardID,l.status from userinfo u,loan l where u.IDnumber = l.IDnumber and u.IDnumber=#{idNumber,jdbcType=VARCHAR} and l.status!='4'
+  </select>
+
+  <select id="getLoanInfByNameAndid" resultMap="ResultMapWithBLOBs" parameterType="java.util.HashMap" >
+    select u.name,l.IDnumber,l.capital,l.cardID,l.status from userinfo u,loan l where u.IDnumber = l.IDnumber and u.name=#{userName,jdbcType=VARCHAR} and l.idNumber=#{idNumber,jdbcType=VARCHAR} and l.status!='4'
+  </select>
+
+  <select id="getLoanInfByNull" resultMap="ResultMapWithBLOBs" parameterType="java.util.HashMap" >
+    select u.name,l.IDnumber,l.capital,l.cardID,l.status from userinfo u,loan l where u.IDnumber = l.IDnumber and l.status!='4' limit #{numPerPage,jdbcType=INTEGER} , #{pageNo,jdbcType=INTEGER}
+  </select>
+  
+  <!-- 非分页部分 -->
+  <select id="getLoanInfByidNumberSingle" resultMap="ResultMapWithBLOBs" parameterType="java.util.HashMap" >
+    select u.name,l.loanType,l.proveFile,l.capital,l.cardID,l.IDnumber,l.status from userinfo u,loan l where u.IDnumber = l.IDnumber and l.status!='4' and l.idNumber=#{idNumber,jdbcType=VARCHAR}
+  </select>
+
+  <update id="deleteApprovalInfByidNumber" parameterType="java.lang.String">
+    update loan set status='4' where IDnumber=#{idNumber,jdbcType=VARCHAR}
+  </update>
+  
+  <select id="getDownloadUrlByCardID" resultType="java.lang.String" parameterType="java.lang.String" >
+    select proveFile from loan where cardID=#{cardID,jdbcType=VARCHAR}
+  </select>
+
+ </mapper>
+  

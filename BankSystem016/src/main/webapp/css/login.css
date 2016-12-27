@@ -1,0 +1,202 @@
+/* reset style */
+body,html,ul,li,ol,p,input,form,h1,h2,h3,h4,h5 {
+	padding: 0;
+	margin: 0;
+}
+input {
+	outline: 0;
+}
+li {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+}
+a,input[type="button"],button {
+	cursor: pointer;
+}
+body {
+	font-size: 12px;
+	font-family: "微软雅黑";
+	background-color: #f2f2f2;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-flow: column;
+	min-height: 100vh;
+}
+/* public style */
+
+/* header */
+.header {
+	width: 100%;
+	min-width: 1050px;
+	height: 75px;
+	background-color: #013564;
+}
+.header-wrap {
+	width: 1000px;
+	margin: 0 auto;
+}
+/* logo */
+.header-wrap h1 {
+	width: 225px;
+	height: 75px;
+}
+.header-wrap h1 img {
+	width: 100%;
+	height: 100%;
+}
+
+/* main */
+.main {
+	width: 100%;
+	flex: 1;
+}
+.main-wrap {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.dialog {
+	width: 400px;
+	height: 250px;
+	margin: 50vh auto 0;
+	transform: translateY(-80%);
+	border: 1px solid #676767;
+	position: relative;
+}
+.login-head {
+	width: 400px;
+	height: 30px;
+	line-height: 30px;
+	color: #fff;
+	font-size: 14px;
+	border-radius: 6px 6px 0 0;
+	text-indent: 20px;
+	background-color: #505050;
+}
+#login {
+	width: 360px;
+	height: 200px;
+	position: relative;
+}
+.dialog,#login input,#login button {
+	border-radius: 6px;
+}
+#login p  {
+	width: 360px;
+	height: 60px;
+}
+#login p label {
+	width: 80px;
+	height: 30px;
+	display: inline-block;
+	text-align: right;
+	line-height: 30px;
+}
+#login p input {
+	width: 268px;
+	height: 28px;
+	border: 1px solid #676767;
+	text-indent: 10px;
+	float: right;
+}
+.mt30 {
+	margin-top: 30px;
+}
+.user-tip,.pass-tip {
+	display: none;
+	width: 270px;
+	height: 30px;
+	float: right;
+	line-height: 30px;
+	text-indent: 10px;
+}
+#submit-btn {
+	width: 268px;
+	height: 28px;
+	font-size: 18px;
+	border: 1px solid transform;
+	text-align: center;
+	line-height: 24px;
+	background-color: #013564;
+	float: right;
+	color: #fff;
+}
+#submit-btn:hover {
+	background-color: green;
+}
+.submit-b {
+	font-weight: normal;
+}
+
+/* forget password, register */
+.bottom {
+	width: 360px;
+	height: 30px;
+	text-align: right;
+	position: absolute;
+	bottom: 0;
+}
+.bottom a {
+	width: auto;
+	height: 15px;
+	text-align: center;
+	line-height: 15px;
+	color: #225592;
+	padding: 0 15px 0 10px;
+	display: inline-block;
+}
+.bottom a:first-child {
+	border-right: 1px solid #676767;
+}
+.bottom a:hover {
+	text-decoration: underline;
+}
+
+
+/* footer */
+.footer {
+	width: 100%;
+	min-width: 1050px;
+	height: 100px;
+	background-color: #013564;
+}
+.footer-wrap {
+	width: 1000px;
+	margin: auto;
+	padding-top: 20px;
+	text-align: center;
+}
+ul.text {
+	width: 404px;
+	height: 15px;
+	display: inline-block;
+}
+ul.copyright {
+	width: 350px;
+	height: 15px;
+	display: inline-block;
+}
+ul.text li,ul.copyright li {
+	float: left;
+}
+ul.text li a,ul.copyright li a {
+	display: inline-block;
+	height: 15px;
+	padding: 0 15px;
+	text-align: center;
+	color: #8c8c8c;
+	line-height: 15px;
+	border-right: 1px solid #8c8c8c;
+}
+ul.text li a:hover,ul.copyright li a:hover {
+	text-decoration: underline;
+	color: #fff;
+}
+ul.text li a.noborder,ul.copyright li a.noborder {
+	border-right: 0px;
+}

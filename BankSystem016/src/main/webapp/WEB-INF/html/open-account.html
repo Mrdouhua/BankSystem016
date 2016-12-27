@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>预约开户</title>
+	<link rel="shortcut icon" href="/BankSystem_16/img/SE.ico">
+	<link rel="stylesheet" href="/BankSystem_16/css/open-account.css">
+</head>
+<body>
+	<!-- 头部 -->
+	<div class="header">
+		<div class="head-wrap">
+			<div class="head-left">
+				<div class="logo">
+					<h1 class="logo-h1">
+						<a href="#" class="logo-a">
+							<img src="/BankSystem_16/img/logo.png" alt="logo" class="logo-img">
+						</a>
+					</h1>
+				</div>
+			</div>
+			<div class="head-right">
+				<div class="user-info">
+					<!-- 这里是用户名 -->
+					<p id="username">
+						<a href="#" class="username-a">
+							小熊
+						</a>
+						<br>
+						<a href="/BankSystem_16/loginout.do" class="logout">
+							注销
+						</a>
+					</p>
+					<!-- 这里是用户头像 -->
+					<div class="user-pic">
+						<a href="#" class="user-pic-a">
+							<img src="/BankSystem_16/img/user.jpg" alt="用户头像" class="user-pic-img">
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="main">
+		<div class="container">
+			<h2 class="account-title">SE银行预约开户</h2>
+			<form action="" class="account-form">
+				<p class="account-p">
+					<label for="username" class="account-label">
+						户主名:
+					</label>
+					<input type="text" class="account-input" id="name" placeholder="请输入户主名">
+				</p>
+				<p class="account-p">
+					<label for="" class="account-label">
+						身份证号码:
+					</label>
+					<input type="text" class="account-input" id="idnumber" placeholder="请输入身份证号码">
+				</p>
+				<p class="account-p">
+					<label for="password" class="account-label">
+						设置支付密码:
+					</label>
+					<input type="password" class="account-input" id="password" placeholder="设置支付密码">
+				</p>
+				<p class="account-p">
+					<input type="submit" id="subBtn" value="submit">
+					<input type="reset" id="reset" value="cancel">
+				</p>
+			</form>
+		</div>
+	</div>
+
+	<!-- 尾部 -->
+	<div class="footer">
+		<div class="footer-wrap">
+			<ul class="text">
+				<li><a href="#">网站申明</a></li>
+				<li><a href="#">网站地图</a></li>
+				<li><a href="#">联系我们</a></li>
+				<li><a href="#" class="noborder">客服热线：15207</a></li>
+			</ul><br>
+			<ul class="copyright">
+				<li>
+					<a href="#">
+						重庆邮电大学SE银行版权所有
+					</a>
+				</li>
+				<li>
+					<a href="#" class="noborder">
+						豫ICP备000000
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript" src="/BankSystem_16/js/jquery.js"></script>
+	<script type="text/javascript" src="/BankSystem_16/js/user-main.js"></script>
+	<script type="text/javascript" src="/BankSystem_16/js/open-account.js"></script>
+</body>
+</html>

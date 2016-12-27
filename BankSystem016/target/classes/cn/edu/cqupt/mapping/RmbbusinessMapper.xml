@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.cqupt.dao.RmbbusinessMapper" >
+  <resultMap id="BaseResultMap" type="cn.edu.cqupt.model.Rmbbusiness" >
+    <id column="Raccountid" property="raccountid" jdbcType="VARCHAR" />
+    <result column="IDnumber" property="idnumber" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="cardType" property="cardtype" jdbcType="VARCHAR" />
+    <result column="capital" property="capital" jdbcType="DECIMAL" />
+    <result column="interest" property="interest" jdbcType="DECIMAL" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="creatTime" property="creattime" jdbcType="TIMESTAMP" />
+    <result column="editTime" property="edittime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    Raccountid, IDnumber, password, cardType, capital, interest, status, creatTime, editTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from rmbbusiness
+  	where Raccountid = #{raccountid,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="selectaccountsnum" resultType="java.lang.Integer" >
+    select count(*)
+    from rmbbusiness
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from rmbbusiness
+    where Raccountid = #{raccountid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.edu.cqupt.model.Rmbbusiness" >
+    insert into rmbbusiness (Raccountid, IDnumber, password, 
+      cardType, capital, interest, 
+      status, creatTime, editTime
+      )
+    values (#{raccountid,jdbcType=VARCHAR}, #{idnumber,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{cardtype,jdbcType=VARCHAR}, #{capital,jdbcType=DECIMAL}, #{interest,jdbcType=DECIMAL}, 
+      #{status,jdbcType=VARCHAR}, #{creattime,jdbcType=TIMESTAMP}, #{edittime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.edu.cqupt.model.Rmbbusiness" >
+    insert into rmbbusiness
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="raccountid != null" >
+        Raccountid,
+      </if>
+      <if test="idnumber != null" >
+        IDnumber,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="cardtype != null" >
+        cardType,
+      </if>
+      <if test="capital != null" >
+        capital,
+      </if>
+      <if test="interest != null" >
+        interest,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="creattime != null" >
+        creatTime,
+      </if>
+      <if test="edittime != null" >
+        editTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="raccountid != null" >
+        #{raccountid,jdbcType=VARCHAR},
+      </if>
+      <if test="idnumber != null" >
+        #{idnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="cardtype != null" >
+        #{cardtype,jdbcType=VARCHAR},
+      </if>
+      <if test="capital != null" >
+        #{capital,jdbcType=DECIMAL},
+      </if>
+      <if test="interest != null" >
+        #{interest,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="creattime != null" >
+        #{creattime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="edittime != null" >
+        #{edittime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.cqupt.model.Rmbbusiness" >
+    update rmbbusiness
+    <set >
+      <if test="idnumber != null" >
+        IDnumber = #{idnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="cardtype != null" >
+        cardType = #{cardtype,jdbcType=VARCHAR},
+      </if>
+      <if test="capital != null" >
+        capital = #{capital,jdbcType=DECIMAL},
+      </if>
+      <if test="interest != null" >
+        interest = #{interest,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="creattime != null" >
+        creatTime = #{creattime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="edittime != null" >
+        editTime = #{edittime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where Raccountid = #{raccountid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.cqupt.model.Rmbbusiness" >
+    update rmbbusiness
+    set IDnumber = #{idnumber,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      cardType = #{cardtype,jdbcType=VARCHAR},
+      capital = #{capital,jdbcType=DECIMAL},
+      interest = #{interest,jdbcType=DECIMAL},
+      status = #{status,jdbcType=VARCHAR},
+      creatTime = #{creattime,jdbcType=TIMESTAMP},
+      editTime = #{edittime,jdbcType=TIMESTAMP}
+    where Raccountid = #{raccountid,jdbcType=VARCHAR}
+  </update>
+   <select id="showRmbbusinessByLimit" resultType="cn.edu.cqupt.model.RmbbusinessShow" parameterType="java.util.Map" >
+	   	select name,Raccountid,rmb.creatTime,status from rmbbusiness rmb
+	   	left join userinfo user on rmb.IDnumber = user.IDnumber
+   		order by rmb.creatTime desc
+   		limit ${offset},#{size}
+   	</select>
+</mapper>

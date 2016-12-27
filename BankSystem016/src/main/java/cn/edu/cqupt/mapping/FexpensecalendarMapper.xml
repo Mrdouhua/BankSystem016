@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.cqupt.dao.FexpensecalendarMapper" >
+  <resultMap id="BaseResultMap" type="cn.edu.cqupt.model.Fexpensecalendar" >
+    <id column="FecId" property="fecid" jdbcType="INTEGER" />
+    <result column="Faccountid" property="faccountid" jdbcType="VARCHAR" />
+    <result column="capital" property="capital" jdbcType="DECIMAL" />
+    <result column="creatTime" property="creattime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    FecId, Faccountid, capital, creatTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from fexpensecalendar
+    where FecId = #{fecid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from fexpensecalendar
+    where FecId = #{fecid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.edu.cqupt.model.Fexpensecalendar" >
+    insert into fexpensecalendar (FecId, Faccountid, capital, 
+      creatTime)
+    values (#{fecid,jdbcType=INTEGER}, #{faccountid,jdbcType=VARCHAR}, #{capital,jdbcType=DECIMAL}, 
+      #{creattime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.edu.cqupt.model.Fexpensecalendar" >
+    insert into fexpensecalendar
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fecid != null" >
+        FecId,
+      </if>
+      <if test="faccountid != null" >
+        Faccountid,
+      </if>
+      <if test="capital != null" >
+        capital,
+      </if>
+      <if test="creattime != null" >
+        creatTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fecid != null" >
+        #{fecid,jdbcType=INTEGER},
+      </if>
+      <if test="faccountid != null" >
+        #{faccountid,jdbcType=VARCHAR},
+      </if>
+      <if test="capital != null" >
+        #{capital,jdbcType=DECIMAL},
+      </if>
+      <if test="creattime != null" >
+        #{creattime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.cqupt.model.Fexpensecalendar" >
+    update fexpensecalendar
+    <set >
+      <if test="faccountid != null" >
+        Faccountid = #{faccountid,jdbcType=VARCHAR},
+      </if>
+      <if test="capital != null" >
+        capital = #{capital,jdbcType=DECIMAL},
+      </if>
+      <if test="creattime != null" >
+        creatTime = #{creattime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where FecId = #{fecid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.cqupt.model.Fexpensecalendar" >
+    update fexpensecalendar
+    set Faccountid = #{faccountid,jdbcType=VARCHAR},
+      capital = #{capital,jdbcType=DECIMAL},
+      creatTime = #{creattime,jdbcType=TIMESTAMP}
+    where FecId = #{fecid,jdbcType=INTEGER}
+  </update>
+</mapper>

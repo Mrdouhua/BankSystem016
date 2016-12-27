@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.cqupt.dao.CreditcardMapper" >
+  <resultMap id="BaseResultMap" type="cn.edu.cqupt.model.Creditcard" >
+    <id column="Caccountid" property="caccountid" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="creditLevel" property="creditlevel" jdbcType="VARCHAR" />
+    <result column="capital" property="capital" jdbcType="DECIMAL" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="creatTime" property="creattime" jdbcType="TIMESTAMP" />
+    <result column="cardType" property="cardtype" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="moneyType" property="moneytype" jdbcType="VARCHAR" />
+    <result column="IDnumber" property="idnumber" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    Caccountid, password, creditLevel, capital, status, creatTime, cardType, city, province, 
+    moneyType, IDnumber
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from creditcard
+    where Caccountid = #{caccountid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from creditcard
+    where Caccountid = #{caccountid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.edu.cqupt.model.Creditcard" >
+    insert into creditcard (Caccountid, password, creditLevel, 
+      capital, status, creatTime, 
+      cardType, city, province, 
+      moneyType, IDnumber)
+    values (#{caccountid,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{creditlevel,jdbcType=VARCHAR}, 
+      #{capital,jdbcType=DECIMAL}, #{status,jdbcType=VARCHAR}, #{creattime,jdbcType=TIMESTAMP}, 
+      #{cardtype,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, 
+      #{moneytype,jdbcType=VARCHAR}, #{idnumber,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.edu.cqupt.model.Creditcard" >
+    insert into creditcard
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="caccountid != null" >
+        Caccountid,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="creditlevel != null" >
+        creditLevel,
+      </if>
+      <if test="capital != null" >
+        capital,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="creattime != null" >
+        creatTime,
+      </if>
+      <if test="cardtype != null" >
+        cardType,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="moneytype != null" >
+        moneyType,
+      </if>
+      <if test="idnumber != null" >
+        IDnumber,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="caccountid != null" >
+        #{caccountid,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="creditlevel != null" >
+        #{creditlevel,jdbcType=VARCHAR},
+      </if>
+      <if test="capital != null" >
+        #{capital,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="creattime != null" >
+        #{creattime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cardtype != null" >
+        #{cardtype,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="moneytype != null" >
+        #{moneytype,jdbcType=VARCHAR},
+      </if>
+      <if test="idnumber != null" >
+        #{idnumber,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.cqupt.model.Creditcard" >
+    update creditcard
+    <set >
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="creditlevel != null" >
+        creditLevel = #{creditlevel,jdbcType=VARCHAR},
+      </if>
+      <if test="capital != null" >
+        capital = #{capital,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="creattime != null" >
+        creatTime = #{creattime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cardtype != null" >
+        cardType = #{cardtype,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="moneytype != null" >
+        moneyType = #{moneytype,jdbcType=VARCHAR},
+      </if>
+      <if test="idnumber != null" >
+        IDnumber = #{idnumber,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Caccountid = #{caccountid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.cqupt.model.Creditcard" >
+    update creditcard
+    set password = #{password,jdbcType=VARCHAR},
+      creditLevel = #{creditlevel,jdbcType=VARCHAR},
+      capital = #{capital,jdbcType=DECIMAL},
+      status = #{status,jdbcType=VARCHAR},
+      creatTime = #{creattime,jdbcType=TIMESTAMP},
+      cardType = #{cardtype,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      moneyType = #{moneytype,jdbcType=VARCHAR},
+      IDnumber = #{idnumber,jdbcType=VARCHAR}
+    where Caccountid = #{caccountid,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.cqupt.dao.InteresttableMapper" >
+  <resultMap id="BaseResultMap" type="cn.edu.cqupt.model.Interesttable" >
+    <result column="interestID" property="interestid" jdbcType="INTEGER" />
+    <result column="depositType" property="deposittype" jdbcType="VARCHAR" />
+    <result column="cycle" property="cycle" jdbcType="CHAR" />
+    <result column="time" property="time" jdbcType="VARCHAR" />
+    <result column="interestValue" property="interestvalue" jdbcType="DOUBLE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    interestID, depositType, cycle, time, interestValue
+  </sql>
+  <insert id="insert" parameterType="cn.edu.cqupt.model.Interesttable" >
+    insert into interesttable (interestID, depositType, cycle, 
+      time, interestValue)
+    values (#{interestid,jdbcType=INTEGER}, #{deposittype,jdbcType=VARCHAR}, #{cycle,jdbcType=CHAR}, 
+      #{time,jdbcType=VARCHAR}, #{interestvalue,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.edu.cqupt.model.Interesttable" >
+    insert into interesttable
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="interestid != null" >
+        interestID,
+      </if>
+      <if test="deposittype != null" >
+        depositType,
+      </if>
+      <if test="cycle != null" >
+        cycle,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+      <if test="interestvalue != null" >
+        interestValue,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="interestid != null" >
+        #{interestid,jdbcType=INTEGER},
+      </if>
+      <if test="deposittype != null" >
+        #{deposittype,jdbcType=VARCHAR},
+      </if>
+      <if test="cycle != null" >
+        #{cycle,jdbcType=CHAR},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="interestvalue != null" >
+        #{interestvalue,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <select id="select" resultMap="BaseResultMap" parameterType="java.util.Map" >
+    select 
+    <include refid="Base_Column_List" />
+    from interesttable where depositType = #{depositType} and cycle = #{cycle} and time = #{time}
+  </select>
+  
+  <select id="getLoanInterestByTime" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select * from (select * from interesttable where time=#{time,jdbcType=VARCHAR}) a where (a.deposittype= 'LA' or a.deposittype= 'LB')
+  </select>
+  
+   <update id="updatedDepositInterest" parameterType="cn.edu.cqupt.model.Interesttable">
+ 	update interesttable set interestValue = #{interestvalue} 
+ 	where depositType = #{deposittype} and cycle = #{cycle} and time = #{time}
+   </update>
+   
+   <update id="updatedLoanInterest" parameterType="cn.edu.cqupt.model.Interesttable">
+ 	update interesttable set interestValue = #{interestvalue} 
+ 	where depositType = #{deposittype} and cycle = #{cycle} and time = #{time}
+   </update>
+  
+</mapper>

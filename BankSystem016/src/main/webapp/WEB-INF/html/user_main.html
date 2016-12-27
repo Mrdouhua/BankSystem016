@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>user_main</title>
+	<link rel="shortcut icon" href="/BankSystem_16/img/SE.ico">
+	<link rel="stylesheet" href="/BankSystem_16/css/user_main.css">
+</head>
+<body>
+	<!-- 头部 -->
+	<div class="header">
+		<div class="head-wrap">
+			<div class="head-left">
+				<div class="logo">
+					<h1 class="logo-h1">
+						<a href="#" class="logo-a">
+							<img src="/BankSystem_16/img/logo.png" alt="logo" class="logo-img">
+						</a>
+					</h1>
+				</div>
+			</div>
+			<div class="head-right">
+				<div class="user-info">
+					<!-- 这里是用户名 -->
+					<p id="username">
+						<a href="#" class="username-a">
+							小熊
+						</a>
+						<br>
+						<a href="/BankSystem_16/loginout.do" class="logout">
+							注销
+						</a>
+					</p>
+					<!-- 这里是用户头像 -->
+					<div class="user-pic">
+						<a href="#" class="user-pic-a">
+							<img src="/BankSystem_16/img/user.jpg" alt="用户头像" class="user-pic-img">
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 导航栏 -->
+	<div class="nav">
+		<div class="nav-wrap">
+			<ul class="nav-ul">
+				<li class="nav-li">
+					<a href="#" class="nav-a nav-active1">
+						信用卡
+					</a>
+					<div class="inner-nav">
+						<h2 class="title">信用卡业务</h2>
+						<div class="card">
+							<ul>
+								<li>
+									<a href="#">
+										信用卡申请
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										进度查询
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										在线开卡
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										积分商城
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										账单积分查询
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										分期理财
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										额度调整
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										在线挂失
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="card-bottom">
+							<ul>
+								<li>
+									<a href="#">
+										信用卡章程
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										还款方式
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										常见问题
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										收费标准
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class="nav-li">
+					<a href="#" class="nav-a">
+						投资理财
+					</a>
+					<div class="inner-nav ml-140">
+						<h2 class="title">投资理财业务业务</h2>
+						<div class="items">
+							<ul>
+								<li>
+									<a href="#">
+										基金&gt;
+									</a>
+									<ul>
+										<li>
+											<a href="#">
+												基金交易
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												基金公告
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												新发基金
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												热销基金
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">
+										理财&gt;
+									</a>
+									<ul>
+										<li>
+											<a href="#">
+												理财产品
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												持有理财产品查询
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												理财产品一览
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												新产品公告
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">
+										保险&gt;
+									</a>
+									<ul>
+										<li>
+											<a href="#">
+												保险产品购买
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												保单查询
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												保险产品分类
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												保险知识
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">
+										贵金属/商品&gt;
+									</a>
+									<ul>
+										<li>
+											<a href="#">
+												账户贵金属买卖
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												贵金属及商品
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												贵金属行情
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">
+										国债/证券&gt;
+									</a>
+									<ul>
+										<li>
+											<a href="#">
+												国债证券介绍
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												记账式国债
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">
+										外汇投资&gt;
+									</a>
+									<ul>
+										<li>
+											<a href="#">
+												外汇买卖
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												行情介绍
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												外汇管理
+											</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+						<div class="inner-bottom">
+							<ul>
+								<li>
+									<a href="#">
+										基金
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										理财
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										保险
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										贵金属
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										常见问题
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class="nav-li">
+					<a href="#" class="nav-a">
+						存款及银行卡
+					</a>
+					<div class="inner-nav ml-280">
+						<h2 class="title">存款及银行卡业务</h2>
+						<div class="items">
+							<ul>
+								<li>
+									<a href="#">
+										存款业务&gt;
+									</a>
+									<ul>
+										<li>
+											<a href="/BankSystem_16/user/togetaccount.do">
+												预约开户
+											</a>
+										</li>
+										<li>
+											<a href="/BankSystem_16/user/toPositintroduce.do">
+												存款业务介绍
+											</a>
+										</li>
+										<li>
+											<a href="/BankSystem_16/user/topinserttable.do">
+												存款利率
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">
+										贷款服务&gt;
+									</a>
+									<ul>
+										<li>
+											<a href="/BankSystem_16/loanApply.do">
+												我要贷款
+											</a>
+										</li>
+										<li>
+											<a href="/BankSystem_16/loanApplySchedule.do">
+												贷款进度查询
+											</a>
+										</li>
+										<li>
+											<a href="/BankSystem_16/user/loanbackintroduce.do">
+												贷款归还
+											</a>
+										</li>
+										<li>
+											<a href="/BankSystem_16/user/loanproductintroduce.do">
+												贷款产品介绍
+											</a>
+										</li>
+										<li>
+											<a href="/BankSystem_16/loanInterestTable.do">
+												贷款利率
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">
+										银行卡&gt;
+									</a>
+									<ul>
+										<li>
+											<a href="#">
+												预约办卡
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												办卡进度查询
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												银行卡产品介绍
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">
+										个人外汇&gt;
+									</a>
+									<ul>
+										<li>
+											<a href="#">
+												预约外汇兑换
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												外汇业务介绍
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												外汇汇款
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												外汇买卖
+											</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+						<div class="inner-bottom">
+							<ul>
+								<li>
+									<a href="#">
+										个贷网点
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										安全用卡常识
+									</a>
+								</li>
+								<li class="width140">
+									<a href="#">
+										个人业务章程和协议下载
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										常见问题
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class="nav-li">
+					<a href="#" class="nav-a">
+						电子银行
+					</a>
+					<div class="inner-nav ml-420">
+						<h2 class="title">电子银行业务</h2>
+						<div class="online-bank">
+							<ul>
+								<li>
+									<a href="#">
+										开通网上银行
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										开通手机银行
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										短信金融
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										网上银行介绍
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										手机银行介绍
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										电子支付
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										家居银行
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										自助银行
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										微信银行
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- banner部分 -->
+	<div class="banner"></div>
+	<div class="main"></div>
+
+	<!-- 尾部 -->
+	<div class="footer">
+		<div class="footer-wrap">
+			<ul class="text">
+				<li><a href="#">网站申明</a></li>
+				<li><a href="#">网站地图</a></li>
+				<li><a href="#">联系我们</a></li>
+				<li><a href="#" class="noborder">客服热线：15207</a></li>
+			</ul><br>
+			<ul class="copyright">
+				<li>
+					<a href="#">
+						重庆邮电大学SE银行版权所有
+					</a>
+				</li>
+				<li>
+					<a href="#" class="noborder">
+						豫ICP备000000
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript" src="/BankSystem_16/js/jquery.js"></script>
+	<script type="text/javascript" src="/BankSystem_16/js/user-main.js"></script>
+</body>
+</html>

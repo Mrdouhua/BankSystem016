@@ -1,0 +1,306 @@
+/* 贷款审批 */
+body,html {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-size: 12px;
+	font-family: "Microsoft Yahei";
+	background-color: #f2f2f2;
+}
+a {
+	text-decoration: none;
+}
+
+/* 头部 */
+.header {
+	width: 100%;
+	min-width: 1050px;
+	height: 75px;
+	background-color: #013564;
+}
+.head-wrap {
+	width: 1000px;
+	height: 75px;
+	margin: 0 auto;
+}
+
+/* 头部左边 */
+.head-left {
+	width: 450px;
+	height: 75px;
+	float: left;
+}
+h1.logo-h1 {
+	margin: 0;
+	padding: 0;
+}
+.logo-a {
+	border: 0;
+	text-decoration: none;
+}
+.logo-img {
+	width: 225px;
+	height: 75px;
+}
+
+/* 头部右边 */
+.head-right {
+	width: 450px;
+	height: 75px;
+	float: right;
+}
+.user-info {
+	display: table;
+	float: right;
+	height: 75px;
+}
+#username {
+	margin: 0;
+	padding: 0;
+	width: 100px;
+	height: 75px;
+	line-height: 20px;
+	text-align: center;
+	float: left;
+}
+.username-a {
+	display: inline-block;
+	color: #fff;
+	font-size: 18px;
+	margin-top: 20px;
+	transition: color .6s;
+}
+.logout {
+	display: inline-block;
+	color: #fff;
+	font-size: 18px;
+	transition: color .6s;
+}
+.username-a:hover,.logout:hover {
+	color: #676767;
+}
+.user-pic {
+	width: 100px;
+	height: 75px;
+	float: right;
+}
+.user-pic-a {
+	border: 0;
+}
+.user-pic-img {
+	width: 100%;
+	height: 100%;
+	border-radius: 4px;
+}
+
+
+/* main */
+.main {
+	width: 100%;
+	min-height: calc(100vh - 175px);
+	position: relative;
+}
+
+.container {
+	width: 960px;
+	margin: 30px auto;
+	border: 1px solid #666;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+h2.account-title {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	text-align: center;
+	height: 50px;
+	line-height: 50px;
+	font-size: 30px;
+	color: #000;
+	border-bottom: 1px solid #666;
+}
+
+.approval-con {
+	width: 750px;
+	margin: 10px auto;
+}
+
+/* 查询部分的表单 */
+.search-form {
+	margin: 0;
+	padding: 0;
+	width: 750px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+}
+
+.name, .idNumber {
+	height: 20px;
+	line-height: 20px;
+	color: #111;
+	font-size: 12px;
+	text-indent: 10px;
+}
+.idNumber {
+	margin: 0 50px 0 50px;
+}
+#search {
+	cursor: pointer;
+}
+
+/* 表格利率 */
+.approval-table {
+	margin: 20px auto;
+	padding: 0;
+}
+/* 表格头部 */
+thead, .tr {
+	width: 750px;
+	height: 30px;
+	margin: 0;
+	padding: 0;
+}
+.td150 {
+	width: 150px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	font-size: 12px;
+	color: #111;
+}
+
+.check {
+	vertical-align: middle;
+}
+.check-label {
+	font-size: 12px;
+}
+
+.audit-state {
+	text-decoration: none;
+	color: #111;
+}
+.audit-state:hover {
+	color: blue;
+	text-decoration: underline;
+}
+
+.page {
+	display: table;
+	height: 20px;
+	line-height: 20px;
+	margin: 0 auto;
+	position: relative;
+	top: -30px;
+}
+
+.subBtn {
+	position: relative;
+	left: 10px;
+	top: -10px;
+}
+
+.start,.prev,.next,.last {
+	display: inline-block;
+	height: 20px;
+	line-height: 20px;
+	margin-left: 1px;
+	padding: 0 5px;
+	cursor: pointer;
+	background-color: transparent;
+	font-size: 14px;
+	color: #111;
+	border-radius: 4px;
+}
+.start:hover,.last:hover,.prev:hover,.next:hover {
+	color: red;
+}
+ul.pageNum {
+	display: inline-block;
+	padding: 0;
+	height: 20px;
+	margin: 0;
+	vertical-align: bottom;
+	line-height: 20px;
+}
+.pageNum li {
+	float: left;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	font-size: 14px;
+	width: 30px;
+	height: 20px;
+	text-align: center;
+	line-height: 20px;
+	cursor: pointer;
+	display: inline-block;
+}
+.pageNum li:hover {
+	color: red;
+}
+li.active {
+	color: red;
+	background-color: orange;
+}
+
+.allNum {
+	width: 50px;
+	height: 20px;
+	display: inline-block;
+	font-size: 12px;
+}
+
+/* 尾部 */
+.footer {
+	width: 100%;
+	min-width: 1050px;
+	height: 100px;
+	background-color: #013564;
+}
+.footer-wrap {
+	width: 1000px;
+	margin: auto;
+	padding-top: 20px;
+	text-align: center;
+}
+ul.text {
+	width: 404px;
+	height: 15px;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+ul.copyright {
+	width: 350px;
+	height: 15px;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+ul.text li,ul.copyright li {
+	float: left;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+ul.text li a,ul.copyright li a {
+	display: inline-block;
+	height: 15px;
+	margin: 0;
+	padding: 0 15px;
+	text-align: center;
+	color: #8c8c8c;
+	line-height: 15px;
+	border-right: 1px solid #8c8c8c;
+}
+ul.text li a:hover,ul.copyright li a:hover {
+	text-decoration: underline;
+	color: #fff;
+}
+ul.text li a.noborder,ul.copyright li a.noborder {
+	border-right: 0px;
+}

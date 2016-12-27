@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.cqupt.dao.LoanMapper" >
+  <resultMap id="BaseResultMap" type="cn.edu.cqupt.model.Loan" >
+    <id column="loanId" property="loanid" jdbcType="INTEGER" />
+    <result column="IDnumber" property="idnumber" jdbcType="VARCHAR" />
+    <result column="loanType" property="loantype" jdbcType="VARCHAR" />
+    <result column="proveFile" property="provefile" jdbcType="VARCHAR" />
+    <result column="capital" property="capital" jdbcType="DECIMAL" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="creatTime" property="creattime" jdbcType="TIMESTAMP" />
+    <result column="cardID" property="cardid" jdbcType="VARCHAR" />
+    <result column="editTime" property="edittime" jdbcType="TIMESTAMP" />
+    <result column="comment" property="comment" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    loanId, IDnumber, loanType, proveFile, capital, status, creatTime, cardID, editTime, 
+    comment
+  </sql>
+  <select id="selectLoanNumbers" resultType="java.lang.Integer" >
+  SELECT COUNT(*) FROM loan
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from loan
+    where loanId = #{loanid,jdbcType=INTEGER}
+  </select>
+  <select id="selectLoanByIdnumber" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from loan
+    where IDnumber = #{idnumber,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from loan
+    where loanId = #{loanid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.edu.cqupt.model.Loan" >
+    insert into loan (loanId, IDnumber, loanType, 
+      proveFile, capital, status, 
+      creatTime, cardID, editTime, 
+      comment)
+    values (#{loanid,jdbcType=INTEGER}, #{idnumber,jdbcType=VARCHAR}, #{loantype,jdbcType=VARCHAR}, 
+      #{provefile,jdbcType=VARCHAR}, #{capital,jdbcType=DECIMAL}, #{status,jdbcType=VARCHAR}, 
+      #{creattime,jdbcType=TIMESTAMP}, #{cardid,jdbcType=VARCHAR}, #{edittime,jdbcType=TIMESTAMP}, 
+      #{comment,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.edu.cqupt.model.Loan" >
+    insert into loan
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="loanid != null" >
+        loanId,
+      </if>
+      <if test="idnumber != null" >
+        IDnumber,
+      </if>
+      <if test="loantype != null" >
+        loanType,
+      </if>
+      <if test="provefile != null" >
+        proveFile,
+      </if>
+      <if test="capital != null" >
+        capital,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="creattime != null" >
+        creatTime,
+      </if>
+      <if test="cardid != null" >
+        cardID,
+      </if>
+      <if test="edittime != null" >
+        editTime,
+      </if>
+      <if test="comment != null" >
+        comment,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="loanid != null" >
+        #{loanid,jdbcType=INTEGER},
+      </if>
+      <if test="idnumber != null" >
+        #{idnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="loantype != null" >
+        #{loantype,jdbcType=VARCHAR},
+      </if>
+      <if test="provefile != null" >
+        #{provefile,jdbcType=VARCHAR},
+      </if>
+      <if test="capital != null" >
+        #{capital,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="creattime != null" >
+        #{creattime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cardid != null" >
+        #{cardid,jdbcType=VARCHAR},
+      </if>
+      <if test="edittime != null" >
+        #{edittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="comment != null" >
+        #{comment,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.cqupt.model.Loan" >
+    update loan
+    <set >
+      <if test="idnumber != null" >
+        IDnumber = #{idnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="loantype != null" >
+        loanType = #{loantype,jdbcType=VARCHAR},
+      </if>
+      <if test="provefile != null" >
+        proveFile = #{provefile,jdbcType=VARCHAR},
+      </if>
+      <if test="capital != null" >
+        capital = #{capital,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="creattime != null" >
+        creatTime = #{creattime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cardid != null" >
+        cardID = #{cardid,jdbcType=VARCHAR},
+      </if>
+      <if test="edittime != null" >
+        editTime = #{edittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="comment != null" >
+        comment = #{comment,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where loanId = #{loanid,jdbcType=INTEGER}
+  </update>
+   <insert id="insertUserLoanApply" parameterType="java.util.HashMap">
+  insert into loan (IDnumber,loanType,proveFile,capital,status,cardID,creatTime,editTime) values(#{idNumber,jdbcType=VARCHAR},#{loanType,jdbcType=VARCHAR},#{uploadFilePath,jdbcType=VARCHAR},#{capital,jdbcType=DECIMAL},'0',#{cardID,jdbcType=VARCHAR},#{creatTime,jdbcType=TIMESTAMP},#{editTime,jdbcType=TIMESTAMP})
+  </insert>
+</mapper>

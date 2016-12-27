@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.cqupt.dao.RexpensecalendalMapper" >
+  <resultMap id="BaseResultMap" type="cn.edu.cqupt.model.Rexpensecalendal" >
+    <id column="RecId" property="recid" jdbcType="INTEGER" />
+    <result column="Raccountid" property="raccountid" jdbcType="VARCHAR" />
+    <result column="capital" property="capital" jdbcType="DECIMAL" />
+    <result column="creatTime" property="creattime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    RecId, Raccountid, capital, creatTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from rexpensecalendal
+    where RecId = #{recid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from rexpensecalendal
+    where RecId = #{recid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.edu.cqupt.model.Rexpensecalendal" >
+    insert into rexpensecalendal (RecId, Raccountid, capital, 
+      creatTime)
+    values (#{recid,jdbcType=INTEGER}, #{raccountid,jdbcType=VARCHAR}, #{capital,jdbcType=DECIMAL}, 
+      #{creattime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.edu.cqupt.model.Rexpensecalendal" >
+    insert into rexpensecalendal
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="recid != null" >
+        RecId,
+      </if>
+      <if test="raccountid != null" >
+        Raccountid,
+      </if>
+      <if test="capital != null" >
+        capital,
+      </if>
+      <if test="creattime != null" >
+        creatTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="recid != null" >
+        #{recid,jdbcType=INTEGER},
+      </if>
+      <if test="raccountid != null" >
+        #{raccountid,jdbcType=VARCHAR},
+      </if>
+      <if test="capital != null" >
+        #{capital,jdbcType=DECIMAL},
+      </if>
+      <if test="creattime != null" >
+        #{creattime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.cqupt.model.Rexpensecalendal" >
+    update rexpensecalendal
+    <set >
+      <if test="raccountid != null" >
+        Raccountid = #{raccountid,jdbcType=VARCHAR},
+      </if>
+      <if test="capital != null" >
+        capital = #{capital,jdbcType=DECIMAL},
+      </if>
+      <if test="creattime != null" >
+        creatTime = #{creattime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where RecId = #{recid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.cqupt.model.Rexpensecalendal" >
+    update rexpensecalendal
+    set Raccountid = #{raccountid,jdbcType=VARCHAR},
+      capital = #{capital,jdbcType=DECIMAL},
+      creatTime = #{creattime,jdbcType=TIMESTAMP}
+    where RecId = #{recid,jdbcType=INTEGER}
+  </update>
+</mapper>

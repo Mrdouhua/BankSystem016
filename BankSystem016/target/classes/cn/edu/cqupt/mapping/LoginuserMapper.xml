@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.cqupt.dao.LoginuserMapper" >
+  <resultMap id="BaseResultMap" type="cn.edu.cqupt.model.Loginuser" >
+    <id column="userid" property="userid" jdbcType="VARCHAR" />
+    <result column="loginName" property="loginname" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="creatTime" property="creattime" jdbcType="TIMESTAMP" />
+    <result column="editTime" property="edittime" jdbcType="TIMESTAMP" />
+    <result column="userType" property="usertype" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    userid, loginName, password, status, creatTime, editTime, userType
+  </sql>
+  
+  <select id="selectsystemuserCounts" resultType="java.lang.Integer"  >
+    select 
+    count(*)
+    from loginuser
+    where userType !='U'
+  </select>
+  
+    <select id="showLoginuserByLimit" resultMap="BaseResultMap" parameterType="java.util.HashMap" >
+   select 
+   <include refid="Base_Column_List" />
+   from loginuser
+   WHERE userType!='U' and status!='4'
+   ORDER BY userType 
+   limit #{start,jdbcType=INTEGER},#{end,jdbcType=INTEGER}
+  </select>
+  
+   <select id="getLoginuserByname" resultMap="BaseResultMap" parameterType="java.lang.String" >
+   select 
+   <include refid="Base_Column_List" />
+   from loginuser
+   WHERE loginName=#{username,jdbcType=VARCHAR}
+  </select>
+  
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from loginuser
+    where userid = #{userid,jdbcType=VARCHAR}
+  </select>
+  <select id="isHaveUser" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from Loginuser
+    where loginName= #{username,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from loginuser
+    where userid = #{userid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.edu.cqupt.model.Loginuser" >
+    insert into loginuser (userid, loginName, password, 
+      status, creatTime, editTime, 
+      userType)
+    values (#{userid,jdbcType=VARCHAR}, #{loginname,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{creattime,jdbcType=TIMESTAMP}, #{edittime,jdbcType=TIMESTAMP}, 
+      #{usertype,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.edu.cqupt.model.Loginuser" >
+    insert into loginuser
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="loginname != null" >
+        loginName,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="creattime != null" >
+        creatTime,
+      </if>
+      <if test="edittime != null" >
+        editTime,
+      </if>
+      <if test="usertype != null" >
+        userType,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="loginname != null" >
+        #{loginname,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="creattime != null" >
+        #{creattime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="edittime != null" >
+        #{edittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usertype != null" >
+        #{usertype,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.cqupt.model.Loginuser" >
+    update loginuser
+    <set >
+      <if test="loginname != null" >
+        loginName = #{loginname,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="creattime != null" >
+        creatTime = #{creattime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="edittime != null" >
+        editTime = #{edittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usertype != null" >
+        userType = #{usertype,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where userid = #{userid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.cqupt.model.Loginuser" >
+    update loginuser
+    set loginName = #{loginname,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      creatTime = #{creattime,jdbcType=TIMESTAMP},
+      editTime = #{edittime,jdbcType=TIMESTAMP},
+      userType = #{usertype,jdbcType=VARCHAR}
+    where userid = #{userid,jdbcType=VARCHAR}
+  </update>
+  
+    <update id="deleteByuserid" parameterType="java.lang.String" >
+    update loginuser
+    set status = '4'
+    where userid = #{userid,jdbcType=VARCHAR}
+  </update>
+</mapper>

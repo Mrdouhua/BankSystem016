@@ -15,7 +15,7 @@
 - 员工端页面（employee_main.html）
  - 贷款业务
     - 贷款审批（loaning-approval.html）
-       -审批页面（audit.html）
+       - 审批页面（audit.html）
     - 贷款产品资料填写（loaning-product.html）
     - 贷款归还业务说明（loaning-back.html）
  - 储存业务

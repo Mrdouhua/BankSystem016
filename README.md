@@ -1,5 +1,5 @@
 ## 项目简介
-和朋友一起构思的一个项目，是一个银行管理系统。目前做了用户界面，员工界面与管理员界面这三个部分。
+和朋友一起构思的一个项目，是一个银行管理系统。目前做了用户界面，员工界面与管理员界面这三个部分，实现了基本的银行业务的功能。项目中包含了众多的前后端交互，数据的及时跟新。
 ## 页面结构
 - 登录页面（login.html）
 - 员工端界面
@@ -15,7 +15,7 @@
 - 员工端页面（employee_main.html）
  - 贷款业务
     - 贷款审批（loaning-approval.html）
-       -审批页面（audit.html）
+       - 审批页面（audit.html）
     - 贷款产品资料填写（loaning-product.html）
     - 贷款归还业务说明（loaning-back.html）
  - 储存业务
@@ -31,3 +31,10 @@
     - 储存利率管理子页面（manage-storage-rate.html）
     - 贷款利率管理子页面（manage-loan-rate.html）
 
+## 使用
+- 克隆：git clone https://github.com/Mrdouhua/BankSystem016.git
+- 使用tomcat运行项目
+- 浏览器输入网址：http://localhost:8080/BankSystem_16/
+ - 登录客户端，用户名：guess；密码：1234567
+ - 登录员工端，用户名：clerk；密码：1234567
+ - 登陆管理员端，用户名：admin；密码：1234567

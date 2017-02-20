@@ -1,4 +1,4 @@
-// 用fetch请求数据
+// 使用fetch请求数据
 $(function(){
 	// 设置全局命名空间
 	var MO = {} || MO;

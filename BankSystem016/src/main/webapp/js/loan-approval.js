@@ -1,3 +1,4 @@
+// 用fetch请求数据
 $(function(){
 	// 设置全局命名空间
 	var MO = {} || MO;
@@ -31,20 +32,11 @@ $(function(){
 
 		// 包装请求后台页面内容ajax的函数
 		function askDataAjax(sendData) {
-			var myPromise = new Promise(function(resolve,reject){
-				$.ajax({
-					type: "post",
-					url: "/BankSystem_16/loanApprovalQuery.do",
-					data: sendData,
-					dataType: "json",
-					success: function(data) {
-						resolve(data);
-					},
-					error: function(){
-						reject(new Error("错啦"));
-					}
-				})
-			})
+			let url = "/BankSystem_16/loanApprovalQuery.do";
+			// 默认发送get请求
+			var myPromise = fetch(url).then( (response)=>{
+				return response.json();
+			});
 
 			myPromise.then(function(data){
 				var oData = data,
